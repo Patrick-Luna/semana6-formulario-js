@@ -3,61 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Profesional</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Registro Premium</title>
+    <link rel="stylesheet" href="styles.css?v=1">
 </head>
 <body>
-    <div class="main-container">
-        <div class="form-card">
-            <div class="header">
+    <div class="background-overlay">
+        <div class="glass-card">
+            <div class="brand">
                 <h2>Crear Cuenta</h2>
-                <p>Únete a nuestra comunidad hoy mismo</p>
+                <p>Ingresa tus datos para continuar</p>
             </div>
             
-            <form id="registroForm" novalidate>
-                <div class="input-row">
+            <form id="registroForm">
+                <div class="row">
                     <label>Nombre Completo</label>
-                    <div class="input-wrapper">
+                    <div class="input-box">
                         <input type="text" id="nombre" placeholder="Juan Pérez">
-                        <span class="error-msg" id="errorNombre"></span>
+                        <span class="err" id="errorNombre"></span>
                     </div>
                 </div>
 
-                <div class="input-row">
-                    <label>Correo Electrónico</label>
-                    <div class="input-wrapper">
-                        <input type="email" id="email" placeholder="correo@ejemplo.com">
-                        <span class="error-msg" id="errorEmail"></span>
+                <div class="row">
+                    <label>Email</label>
+                    <div class="input-box">
+                        <input type="email" id="email" placeholder="juan@ejemplo.com">
+                        <span class="err" id="errorEmail"></span>
                     </div>
                 </div>
 
-                <div class="input-row">
+                <div class="row">
                     <label>Contraseña</label>
-                    <div class="input-wrapper">
+                    <div class="input-box">
                         <input type="password" id="pass" placeholder="••••••••">
-                        <span class="error-msg" id="errorPass"></span>
+                        <span class="err" id="errorPass"></span>
                     </div>
                 </div>
 
-                <div class="input-row">
-                    <label>Confirmar Contraseña</label>
-                    <div class="input-wrapper">
+                <div class="row">
+                    <label>Confirmar</label>
+                    <div class="input-box">
                         <input type="password" id="confirmPass" placeholder="••••••••">
-                        <span class="error-msg" id="errorConfirm"></span>
+                        <span class="err" id="errorConfirm"></span>
                     </div>
                 </div>
 
-                <div class="input-row">
+                <div class="row">
                     <label>Edad</label>
-                    <div class="input-wrapper">
+                    <div class="input-box">
                         <input type="number" id="edad" placeholder="Mínimo 18">
-                        <span class="error-msg" id="errorEdad"></span>
+                        <span class="err" id="errorEdad"></span>
                     </div>
                 </div>
 
-                <div class="button-group">
-                    <button type="submit" id="btnEnviar" disabled>Registrarse ahora</button>
-                    <button type="reset" id="btnReset">Limpiar campos</button>
+                <div class="btn-container">
+                    <button type="submit" id="btnEnviar" disabled>REGISTRARSE</button>
+                    <button type="reset" id="btnReset">LIMPIAR</button>
                 </div>
             </form>
         </div>
