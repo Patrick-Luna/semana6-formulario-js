@@ -1,13 +1,102 @@
-body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-.container { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; }
-h2 { text-align: center; color: #1c1e21; }
-.field { margin-bottom: 1rem; }
-input { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; box-sizing: border-box; outline: none; }
-input.valido { border-color: #42b72a; }
-input.invalido { border-color: #f02849; }
-.error { color: #f02849; font-size: 12px; display: block; margin-top: 4px; height: 14px; }
-.buttons { display: flex; gap: 10px; }
-button { flex: 1; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
-#btnEnviar { background-color: #1877f2; color: white; }
-#btnEnviar:disabled { background-color: #e4e6eb; color: #bcc0c4; cursor: not-allowed; }
-#btnReset { background-color: #f0f2f5; color: #4b4f56; }
+/* Importar una fuente moderna desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Fondo con degradado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra elegante */
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.field {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Animación suave al hacer foco */
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+/* Estilos de validación */
+input.valido {
+    border-color: #48bb78;
+    background-color: #f0fff4;
+}
+
+input.invalido {
+    border-color: #f56565;
+    background-color: #fff5f5;
+}
+
+.error {
+    color: #e53e3e;
+    font-size: 12px;
+    margin-top: 5px;
+    height: 14px;
+    display: block;
+}
+
+/* Botones mejorados */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#btnEnviar {
+    background-color: #667eea;
+    color: white;
+}
+
+#btnEnviar:hover:not(:disabled)
