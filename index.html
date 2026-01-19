@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Registro de Usuario</title>
+    <title>Registro Profesional</title>
     <style>
-        /* Definición de variables y fuentes */
         :root {
             --azul-navy: #1e3a8a;
             --azul-profundo: #172554;
-            --gris-texto: #374151;
             --verde-exito: #059669;
             --rojo-error: #dc2626;
         }
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
             display: flex;
             justify-content: center;
@@ -27,106 +25,112 @@
         .contenedor-registro {
             background-color: #ffffff;
             padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            width: 90%;
             max-width: 500px;
         }
 
-        .encabezado {
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 1rem;
+        .encabezado { 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            border-bottom: 2px solid #f1f5f9; 
+            padding-bottom: 1rem; 
         }
 
-        .encabezado h2 {
-            color: var(--azul-navy);
-            font-size: 1.75rem;
-            margin: 0;
-            letter-spacing: -0.025em;
+        .encabezado h2 { 
+            color: var(--azul-navy); 
+            font-size: 1.8rem; 
+            margin: 0; 
+            font-weight: 700;
         }
 
-        .encabezado p {
-            color: #64748b;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
+        .encabezado p { 
+            color: #64748b; 
+            font-size: 0.95rem; 
+            margin-top: 0.5rem; 
         }
 
-        .grupo-formulario {
-            margin-bottom: 1.25rem;
-            display: flex;
-            flex-direction: column;
+        .grupo-formulario { 
+            margin-bottom: 1.2rem; 
+            display: flex; 
+            flex-direction: column; 
         }
 
-        label {
-            font-weight: 600;
-            color: var(--gris-texto);
-            margin-bottom: 0.4rem;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        label { 
+            font-weight: 600; 
+            color: #374151; 
+            margin-bottom: 0.5rem; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.02em;
         }
 
         input {
-            padding: 0.75rem 1rem;
+            padding: 0.8rem;
             border: 1.5px solid #d1d5db;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: all 0.2s ease;
             outline: none;
+            transition: all 0.2s;
         }
 
-        input:focus {
-            border-color: var(--azul-navy);
-            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
-        }
-
-        /* Estados de validación visual */
+        /* Estilos cuando el campo es correcto o incorrecto */
         input.valido { border-color: var(--verde-exito); background-color: #f0fdf4; }
         input.invalido { border-color: var(--rojo-error); background-color: #fef2f2; }
 
-        .mensaje-error {
-            color: var(--rojo-error);
-            font-size: 0.75rem;
-            margin-top: 0.25rem;
-            min-height: 1rem;
+        .mensaje-error { 
+            color: var(--rojo-error); 
+            font-size: 0.75rem; 
+            margin-top: 0.3rem; 
+            min-height: 1rem; 
             font-weight: 500;
         }
 
-        .contenedor-botones {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1.5rem;
+        .contenedor-botones { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1.2rem; 
+            margin-top: 1.5rem; 
+        }
+        
+        button { 
+            padding: 0.9rem; 
+            border-radius: 8px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            transition: 0.3s;
+            font-size: 0.85rem;
+        }
+        
+        #btnEnviar { 
+            background-color: var(--azul-navy); 
+            color: white; 
+            border: none; 
         }
 
-        button {
-            padding: 0.8rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-transform: uppercase;
+        #btnEnviar:hover:not(:disabled) { 
+            background-color: var(--azul-profundo);
+            transform: translateY(-1px);
         }
 
-        #btnEnviar {
-            background-color: var(--azul-navy);
-            color: white;
-            border: none;
+        #btnEnviar:disabled { 
+            background-color: #cbd5e0; 
+            color: #718096;
+            cursor: not-allowed; 
+            opacity: 0.8; 
         }
 
-        #btnEnviar:hover:not(:disabled) { background-color: var(--azul-profundo); }
-        #btnEnviar:disabled { background-color: #94a3b8; cursor: not-allowed; }
-
-        #btnReset {
-            background-color: transparent;
-            border: 1.5px solid #d1d5db;
-            color: #4b5563;
+        #btnReset { 
+            background-color: #f8fafc; 
+            border: 1.5px solid #d1d5db; 
+            color: #475569; 
         }
 
-        #btnReset:hover { background-color: #f9fafb; border-color: #9ca3af; }
+        #btnReset:hover {
+            background-color: #f1f5f9;
+        }
     </style>
 </head>
 <body>
@@ -140,37 +144,37 @@
     <form id="registroForm" novalidate>
         <div class="grupo-formulario">
             <label for="nombre">Nombre y Apellidos</label>
-            <input type="text" id="nombre" placeholder="Ingrese su nombre completo" required>
+            <input type="text" id="nombre" placeholder="Ingrese su nombre completo">
             <span class="mensaje-error" id="errorNombre"></span>
         </div>
 
         <div class="grupo-formulario">
             <label for="email">Dirección de Correo Electrónico</label>
-            <input type="email" id="email" placeholder="ejemplo@dominio.com" required>
+            <input type="email" id="email" placeholder="ejemplo@dominio.com">
             <span class="mensaje-error" id="errorEmail"></span>
         </div>
 
         <div class="grupo-formulario">
             <label for="pass">Contraseña de Acceso</label>
-            <input type="password" id="pass" placeholder="Defina una clave segura" required>
+            <input type="password" id="pass" placeholder="Mínimo 8 caracteres, número y símbolo">
             <span class="mensaje-error" id="errorPass"></span>
         </div>
 
         <div class="grupo-formulario">
             <label for="confirmPass">Confirmación de Contraseña</label>
-            <input type="password" id="confirmPass" placeholder="Repita la clave anterior" required>
+            <input type="password" id="confirmPass" placeholder="Repita la clave anterior">
             <span class="mensaje-error" id="errorConfirm"></span>
         </div>
 
         <div class="grupo-formulario">
             <label for="edad">Edad Cronológica</label>
-            <input type="number" id="edad" placeholder="Mínimo 18 años" required>
+            <input type="number" id="edad" placeholder="Mínimo 18 años">
             <span class="mensaje-error" id="errorEdad"></span>
         </div>
 
         <div class="contenedor-botones">
             <button type="submit" id="btnEnviar" disabled>Finalizar Registro</button>
-            <button type="reset" id="btnReset">Restablecer Formulario</button>
+            <button type="reset" id="btnReset">Restablecer</button>
         </div>
     </form>
 </div>
@@ -179,41 +183,50 @@
     const form = document.getElementById('registroForm');
     const btnEnviar = document.getElementById('btnEnviar');
 
-    const validar = () => {
-        const campos = {
-            nombre: document.getElementById('nombre').value.trim().length >= 4,
-            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('email').value),
-            pass: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/.test(document.getElementById('pass').value),
-            confirm: document.getElementById('confirmPass').value === document.getElementById('pass').value && document.getElementById('confirmPass').value !== "",
-            edad: parseInt(document.getElementById('edad').value) >= 18
+    const validarFormulario = () => {
+        const nombreVal = document.getElementById('nombre').value.trim();
+        const emailVal = document.getElementById('email').value.trim();
+        const passVal = document.getElementById('pass').value;
+        const confirmVal = document.getElementById('confirmPass').value;
+        const edadVal = document.getElementById('edad').value;
+
+        const validaciones = {
+            nombre: nombreVal.length >= 4,
+            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal),
+            pass: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/.test(passVal),
+            confirm: confirmVal === passVal && confirmVal !== "",
+            edad: parseInt(edadVal) >= 18
         };
 
-        gestionarEstado('nombre', campos.nombre, "Se requiere el nombre completo.");
-        gestionarEstado('email', campos.email, "El formato de correo no es válido.");
-        gestionarEstado('pass', campos.pass, "Debe contener 8 caracteres, números y símbolos.");
-        gestionarEstado('confirmPass', campos.confirm, "Las contraseñas no coinciden.");
-        gestionarEstado('edad', campos.edad, "Debe ser mayor de edad para proceder.");
+        actualizarEstilo('nombre', validaciones.nombre, "Se requiere nombre completo.");
+        actualizarEstilo('email', validaciones.email, "Formato de correo no válido.");
+        actualizarEstilo('pass', validaciones.pass, "Use 8+ caracteres, número y símbolo.");
+        actualizarEstilo('confirmPass', validaciones.confirm, "Las contraseñas no coinciden.");
+        actualizarEstilo('edad', validaciones.edad, "Debe ser mayor de 18 años.");
 
-        btnEnviar.disabled = !Object.values(campos).every(v => v === true);
+        // ACTIVA EL BOTÓN SI TODO ES VERDADERO
+        const todoCorrecto = Object.values(validaciones).every(v => v === true);
+        btnEnviar.disabled = !todoCorrecto;
     };
 
-    function gestionarEstado(id, esValido, mensaje) {
-        const elemento = document.getElementById(id);
+    function actualizarEstilo(id, esValido, mensaje) {
+        const input = document.getElementById(id);
         const errorSpan = document.getElementById('error' + id.charAt(0).toUpperCase() + id.slice(1));
         
-        if (elemento.value === "") {
-            elemento.className = "";
+        if (input.value === "") {
+            input.className = "";
             errorSpan.textContent = "";
         } else {
-            elemento.className = esValido ? "valido" : "invalido";
+            input.className = esValido ? "valido" : "invalido";
             errorSpan.textContent = esValido ? "" : mensaje;
         }
     }
 
-    form.addEventListener('input', validar);
+    form.addEventListener('input', validarFormulario);
+    
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert("Información procesada exitosamente. Bienvenido al sistema.");
+        alert("¡Registro Completado con Éxito!");
     });
 </script>
 
