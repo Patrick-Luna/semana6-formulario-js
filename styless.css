@@ -1,0 +1,13 @@
+body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+.container { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; }
+h2 { text-align: center; color: #1c1e21; }
+.field { margin-bottom: 1rem; }
+input { width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; box-sizing: border-box; outline: none; }
+input.valido { border-color: #42b72a; }
+input.invalido { border-color: #f02849; }
+.error { color: #f02849; font-size: 12px; display: block; margin-top: 4px; height: 14px; }
+.buttons { display: flex; gap: 10px; }
+button { flex: 1; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+#btnEnviar { background-color: #1877f2; color: white; }
+#btnEnviar:disabled { background-color: #e4e6eb; color: #bcc0c4; cursor: not-allowed; }
+#btnReset { background-color: #f0f2f5; color: #4b4f56; }

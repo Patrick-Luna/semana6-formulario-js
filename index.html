@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Dinámico JS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="registroForm">
+            <h2>Registro de Usuario</h2>
+            
+            <div class="field">
+                <input type="text" id="nombre" placeholder="Nombre completo">
+                <span class="error" id="errorNombre"></span>
+            </div>
+
+            <div class="field">
+                <input type="email" id="email" placeholder="Correo electrónico">
+                <span class="error" id="errorEmail"></span>
+            </div>
+
+            <div class="field">
+                <input type="password" id="pass" placeholder="Contraseña">
+                <span class="error" id="errorPass"></span>
+            </div>
+
+            <div class="field">
+                <input type="password" id="confirmPass" placeholder="Confirmar contraseña">
+                <span class="error" id="errorConfirm"></span>
+            </div>
+
+            <div class="field">
+                <input type="number" id="edad" placeholder="Edad">
+                <span class="error" id="errorEdad"></span>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" id="btnEnviar" disabled>Enviar Registro</button>
+                <button type="reset" id="btnReset">Reiniciar</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
