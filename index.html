@@ -3,65 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Premium</title>
-    <link rel="stylesheet" href="styles.css?v=1">
+    <title>Sistema de Registro de Usuario</title>
+    <style>
+        /* Definición de variables y fuentes */
+        :root {
+            --azul-navy: #1e3a8a;
+            --azul-profundo: #172554;
+            --gris-texto: #374151;
+            --verde-exito: #059669;
+            --rojo-error: #dc2626;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .contenedor-registro {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .encabezado {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 1rem;
+        }
+
+        .encabezado h2 {
+            color: var(--azul-navy);
+            font-size: 1.75rem;
+            margin: 0;
+            letter-spacing: -0.025em;
+        }
+
+        .encabezado p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .grupo-formulario {
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--gris-texto);
+            margin-bottom: 0.4rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input {
+            padding: 0.75rem 1rem;
+            border: 1.5px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--azul-navy);
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        /* Estados de validación visual */
+        input.valido { border-color: var(--verde-exito); background-color: #f0fdf4; }
+        input.invalido { border-color: var(--rojo-error); background-color: #fef2f2; }
+
+        .mensaje-error {
+            color: var(--rojo-error);
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            min-height: 1rem;
+            font-weight: 500;
+        }
+
+        .contenedor-botones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        button {
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        #btnEnviar {
+            background-color: var(--azul-navy);
+            color: white;
+            border: none;
+        }
+
+        #btnEnviar:hover:not(:disabled) { background-color: var(--azul-profundo); }
+        #btnEnviar:disabled { background-color: #94a3b8; cursor: not-allowed; }
+
+        #btnReset {
+            background-color: transparent;
+            border: 1.5px solid #d1d5db;
+            color: #4b5563;
+        }
+
+        #btnReset:hover { background-color: #f9fafb; border-color: #9ca3af; }
+    </style>
 </head>
 <body>
-    <div class="background-overlay">
-        <div class="glass-card">
-            <div class="brand">
-                <h2>Crear Cuenta</h2>
-                <p>Ingresa tus datos para continuar</p>
-            </div>
-            
-            <form id="registroForm">
-                <div class="row">
-                    <label>Nombre Completo</label>
-                    <div class="input-box">
-                        <input type="text" id="nombre" placeholder="Juan Pérez">
-                        <span class="err" id="errorNombre"></span>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <label>Email</label>
-                    <div class="input-box">
-                        <input type="email" id="email" placeholder="juan@ejemplo.com">
-                        <span class="err" id="errorEmail"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label>Contraseña</label>
-                    <div class="input-box">
-                        <input type="password" id="pass" placeholder="••••••••">
-                        <span class="err" id="errorPass"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label>Confirmar</label>
-                    <div class="input-box">
-                        <input type="password" id="confirmPass" placeholder="••••••••">
-                        <span class="err" id="errorConfirm"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <label>Edad</label>
-                    <div class="input-box">
-                        <input type="number" id="edad" placeholder="Mínimo 18">
-                        <span class="err" id="errorEdad"></span>
-                    </div>
-                </div>
-
-                <div class="btn-container">
-                    <button type="submit" id="btnEnviar" disabled>REGISTRARSE</button>
-                    <button type="reset" id="btnReset">LIMPIAR</button>
-                </div>
-            </form>
-        </div>
+<div class="contenedor-registro">
+    <div class="encabezado">
+        <h2>Registro de Usuario</h2>
+        <p>Proporcione la información requerida para la creación de su cuenta corporativa.</p>
     </div>
-    <script src="script.js"></script>
+
+    <form id="registroForm" novalidate>
+        <div class="grupo-formulario">
+            <label for="nombre">Nombre y Apellidos</label>
+            <input type="text" id="nombre" placeholder="Ingrese su nombre completo" required>
+            <span class="mensaje-error" id="errorNombre"></span>
+        </div>
+
+        <div class="grupo-formulario">
+            <label for="email">Dirección de Correo Electrónico</label>
+            <input type="email" id="email" placeholder="ejemplo@dominio.com" required>
+            <span class="mensaje-error" id="errorEmail"></span>
+        </div>
+
+        <div class="grupo-formulario">
+            <label for="pass">Contraseña de Acceso</label>
+            <input type="password" id="pass" placeholder="Defina una clave segura" required>
+            <span class="mensaje-error" id="errorPass"></span>
+        </div>
+
+        <div class="grupo-formulario">
+            <label for="confirmPass">Confirmación de Contraseña</label>
+            <input type="password" id="confirmPass" placeholder="Repita la clave anterior" required>
+            <span class="mensaje-error" id="errorConfirm"></span>
+        </div>
+
+        <div class="grupo-formulario">
+            <label for="edad">Edad Cronológica</label>
+            <input type="number" id="edad" placeholder="Mínimo 18 años" required>
+            <span class="mensaje-error" id="errorEdad"></span>
+        </div>
+
+        <div class="contenedor-botones">
+            <button type="submit" id="btnEnviar" disabled>Finalizar Registro</button>
+            <button type="reset" id="btnReset">Restablecer Formulario</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById('registroForm');
+    const btnEnviar = document.getElementById('btnEnviar');
+
+    const validar = () => {
+        const campos = {
+            nombre: document.getElementById('nombre').value.trim().length >= 4,
+            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('email').value),
+            pass: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/.test(document.getElementById('pass').value),
+            confirm: document.getElementById('confirmPass').value === document.getElementById('pass').value && document.getElementById('confirmPass').value !== "",
+            edad: parseInt(document.getElementById('edad').value) >= 18
+        };
+
+        gestionarEstado('nombre', campos.nombre, "Se requiere el nombre completo.");
+        gestionarEstado('email', campos.email, "El formato de correo no es válido.");
+        gestionarEstado('pass', campos.pass, "Debe contener 8 caracteres, números y símbolos.");
+        gestionarEstado('confirmPass', campos.confirm, "Las contraseñas no coinciden.");
+        gestionarEstado('edad', campos.edad, "Debe ser mayor de edad para proceder.");
+
+        btnEnviar.disabled = !Object.values(campos).every(v => v === true);
+    };
+
+    function gestionarEstado(id, esValido, mensaje) {
+        const elemento = document.getElementById(id);
+        const errorSpan = document.getElementById('error' + id.charAt(0).toUpperCase() + id.slice(1));
+        
+        if (elemento.value === "") {
+            elemento.className = "";
+            errorSpan.textContent = "";
+        } else {
+            elemento.className = esValido ? "valido" : "invalido";
+            errorSpan.textContent = esValido ? "" : mensaje;
+        }
+    }
+
+    form.addEventListener('input', validar);
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert("Información procesada exitosamente. Bienvenido al sistema.");
+    });
+</script>
+
 </body>
 </html>
