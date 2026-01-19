@@ -1,9 +1,15 @@
-/* Importar una fuente moderna desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --success: #10b981;
+    --error: #ef4444;
+    --text-main: #1f2937;
+    --bg-body: #f3f4f6;
+}
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Fondo con degradado */
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: radial-gradient(circle at top left, #4f46e5, #9333ea);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,92 +17,81 @@ body {
     margin: 0;
 }
 
-.container {
-    background: white;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra elegante */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
 }
 
-h2 {
-    text-align: center;
-    color: #2d3748;
-    margin-bottom: 24px;
-    font-weight: 600;
-}
+.card-header { text-align: center; margin-bottom: 2rem; }
+.card-header h2 { margin: 0; color: var(--text-main); font-size: 1.8rem; }
+.card-header p { color: #6b7280; margin-top: 0.5rem; }
 
-.field {
-    margin-bottom: 18px;
-    position: relative;
-}
-
-label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 14px;
-    color: #4a5568;
-    font-weight: 600;
-}
+.input-group { margin-bottom: 1.2rem; }
+label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-main); }
 
 input {
     width: 100%;
-    padding: 12px 16px;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
     box-sizing: border-box;
-    transition: all 0.3s ease; /* Animación suave al hacer foco */
-    font-size: 16px;
 }
 
 input:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
-/* Estilos de validación */
-input.valido {
-    border-color: #48bb78;
-    background-color: #f0fff4;
-}
+input.valido { border-color: var(--success); background-color: #f0fdf4; }
+input.invalido { border-color: var(--error); background-color: #fef2f2; }
 
-input.invalido {
-    border-color: #f56565;
-    background-color: #fff5f5;
-}
-
-.error {
-    color: #e53e3e;
-    font-size: 12px;
-    margin-top: 5px;
-    height: 14px;
+.error-msg {
+    color: var(--error);
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
     display: block;
+    min-height: 1rem;
 }
 
-/* Botones mejorados */
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 10px;
-}
+.actions { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.5rem; }
 
 button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 0.9rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
+    transition: all 0.3s;
 }
 
 #btnEnviar {
-    background-color: #667eea;
+    background: var(--primary);
     color: white;
+    border: none;
 }
 
-#btnEnviar:hover:not(:disabled)
+#btnEnviar:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: scale(1.02);
+}
+
+#btnEnviar:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+}
+
+#btnReset {
+    background: none;
+    border: 1px solid #d1d5db;
+    color: #6b7280;
+}
+
+#btnReset:hover { background: #f9fafb; }
